@@ -38,6 +38,13 @@ const Login = () => {
         }
     };
     
+    const validateActiveSession = () => {
+        const sessionActive = localStorage.getItem('key');
+        if (sessionActive === JSON.stringify(data)) {
+            navigate('/Home')
+        }
+    };
+    validateActiveSession();
 
     return (
         <Center width='100%' height='100vh'>
@@ -69,7 +76,7 @@ const Login = () => {
                     </InputRightElement>
                 </InputGroup>
                 <Button size='sm' onClick={() =>
-                    validateUserData() ? navigate('/Home') : navigate('/')}>LogIn</Button>
+                    validateUserData() ? navigate('/Home') :  `Ingresa un correo y contraseña valido`  }>LogIn</Button>
             </Stack>
         </Center>
     );
@@ -77,13 +84,3 @@ const Login = () => {
 };
 
 export default Login;
-
-/* <div>
-            <p>Login</p>
-            {isLoggedIn ? (
-                <Home />
-            ) : (
-                <Login />
-            )}
-            <button onClick={() => navigate('/Home')}>LogIn</button>
-        </div> */
