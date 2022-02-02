@@ -1,15 +1,89 @@
-import {React} from 'react';
+import { React, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Input, Button, InputGroup, InputRightElement, InputLeftElement, Stack, Center } from '@chakra-ui/react';
+import { EmailIcon, LockIcon, ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 
 const Login = () => {
     const navigate = useNavigate();
+    const [show, setShow] = useState(false);
+    const handleClick = () => setShow(!show);
+    const [user, setUser] = useState({
+        email: '',
+        password: ''
+    });
+    const [data, setData] = useState([]);
+    /* const [isUserLogin, setIsUserLogin] = useState(false); */
+    const getData = () => {
+        fetch('data.json')
+            .then((credentials) => credentials.json())
+            .then((data) => setData(data));
+    };
+    useEffect(() => {
+        getData();
+    }, []);
+
+    const handleInputChange = (event) => {
+        setUser({
+            ...user,
+            [event.target.name]: event.target.value
+        })
+    };
+
+    const validateUserData = () => {
+        if (JSON.stringify(user) === JSON.stringify(data)) {
+            localStorage.setItem('key', JSON.stringify(data));
+            return true
+        } else {
+            return false
+        }
+    };
+    
 
     return (
-        <div>
-            <button onClick={() => navigate('/Home')}>LogIn</button>
-        </div>
+        <Center width='100%' height='100vh'>
+            <Stack spacing={4} w='35%' >
+                <InputGroup size='sm' >
+                    <InputLeftElement
+                        pointerEvents='none'
+                        children={<EmailIcon color='blue.300' />}
+                    />
+                    <Input type='email' placeholder='Email' borderRadius='8px' onChange={handleInputChange} name="email" />
+                </InputGroup>
+
+                <InputGroup size='sm'>
+                    <InputLeftElement
+                        pointerEvents='none'
+                        children={<LockIcon color='blue.300' />}
+                    />
+                    <Input
+                        pr='4.5rem'
+                        type={show ? 'text' : 'password'}
+                        placeholder='Enter password'
+                        borderRadius='8px'
+                        onChange={handleInputChange} name="password"
+                    />
+                    <InputRightElement width='4.5rem'>
+                        <Button h='1.5rem' size='sm' bg={'transparent'} onClick={handleClick}>
+                            {show ? <ViewIcon color='blue.300' /> : <ViewOffIcon color='blue.300' />}
+                        </Button>
+                    </InputRightElement>
+                </InputGroup>
+                <Button size='sm' onClick={() =>
+                    validateUserData() ? navigate('/Home') : navigate('/')}>LogIn</Button>
+            </Stack>
+        </Center>
     );
 
 };
 
 export default Login;
+
+/* <div>
+            <p>Login</p>
+            {isLoggedIn ? (
+                <Home />
+            ) : (
+                <Login />
+            )}
+            <button onClick={() => navigate('/Home')}>LogIn</button>
+        </div> */
