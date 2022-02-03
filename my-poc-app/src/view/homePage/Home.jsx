@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import TabBar from './TabBar';
 
 const Home = () => {
     const navigate = useNavigate();
@@ -16,12 +17,15 @@ const Home = () => {
     return (
         <div>
             <p>Welcome!</p>
-            <button onClick={() => navigate('/Detail')}>Detalles</button>
             <p>{dato.email} </p>
             <button onClick={() => signOff()}>LogOut</button>
-        </div>
-    );
 
+            <div>
+                <TabBar />
+            </div>
+        </div>
+
+    );
 };
 
 export default Home;

@@ -13,13 +13,13 @@ const Login = () => {
     });
     const [data, setData] = useState([]);
     /* const [isUserLogin, setIsUserLogin] = useState(false); */
-    const getData = () => {
+    const getDataCredentials = () => {
         fetch('data.json')
             .then((credentials) => credentials.json())
             .then((data) => setData(data));
     };
     useEffect(() => {
-        getData();
+        getDataCredentials();
     }, []);
 
     const handleInputChange = (event) => {
