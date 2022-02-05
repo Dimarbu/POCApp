@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <canvas class="content-canvas" width="1000" height="500" id="canvas-polygon" onmousedown="setInitial(event)" onmouseup="draw(event)"></canvas>
+    
+    <div class="block-color black" onclick="setColor('black')">
+
+    </div>
+    <div class="block-color red" onclick="setColor('red')">
+
+    </div>
+    <div class="block-color yellow" onclick="setColor('yellow')">
+
+    </div>
+    <div class="block-color blue" onclick="setColor('blue')">
+
+    </div>
+    
+    <script src="./index.js"></script>
+</body>
+</html>
