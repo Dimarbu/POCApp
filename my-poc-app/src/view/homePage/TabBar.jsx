@@ -1,22 +1,23 @@
 import React from 'react';
-import { Tabs, TabPanels, TabPanel, TabList, Tab} from '@chakra-ui/react';
+import { Tabs, TabPanels, TabPanel, TabList, Tab } from '@chakra-ui/react';
 import Pagination from './Pagination';
+import Favorites from './Favorites';
 
 const TabBar = () => {
 
     return (
-        <Tabs defaultIndex={0}>
+        <Tabs flexDirection='row-reverse' defaultIndex={0}>
             <TabPanels>
                 <TabPanel>
                     <Pagination />
                 </TabPanel>
-                <TabPanel>
-                   <p>Pagina ficti</p>
+                <TabPanel >
+                    <Favorites />
                 </TabPanel>
             </TabPanels>
-            <TabList>
-                <Tab>Implemented</Tab>
-                <Tab>Dummy</Tab>
+            <TabList position='absolute'>
+                <Tab _selected={{ color: 'white', bg: 'black' }}>Collection</Tab>
+                <Tab _selected={{ color: 'white', bg: 'black' }}>Favorites</Tab>
             </TabList>
         </Tabs>
     )

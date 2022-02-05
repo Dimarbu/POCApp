@@ -1,30 +1,29 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import TabBar from './TabBar';
+import Header from '../header/Header';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
     const navigate = useNavigate();
 
-    const dato = localStorage.getItem('key');
-    console.log(dato);
-
-    const signOff = () => {
-        localStorage.clear();
-        (navigate('/')
-        )
-    }
+    useEffect(() => {
+        const sessionActive = localStorage.getItem('key');
+        if (!sessionActive) {
+            navigate('/')
+        }
+    }, [])
 
     return (
-        <div>
-            <p>Welcome!</p>
-            <p>{dato.email} </p>
-            <button onClick={() => signOff()}>LogOut</button>
+        <>
+            <header >
+                <Header />
+            </header>
 
-            <div>
+            <footer className='footer'>
                 <TabBar />
-            </div>
-        </div>
-
+            </footer>
+        </>
     );
 };
 

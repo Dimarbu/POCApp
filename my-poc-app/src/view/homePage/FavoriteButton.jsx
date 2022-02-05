@@ -1,20 +1,13 @@
 import React from 'react';
-import logo from '../../img/estrella.png';
-import logo2 from '../../img/estrella2.png';
+import { Image, Box } from '@chakra-ui/react';
+import starFavorite from '../../img/favorite.png';
+import starWhite from '../../img/star-white.png';
 
 const FavoriteButton = ({ handlePress, id, favoriteItem }) => {
-
-
     return (
-        <div>
-            <div onClick={() => handlePress(id)}>
-                {favoriteItem ? (
-                    <img src={logo} alt="" />
-                ) : (
-                    <img src={logo2} alt="" />
-                )}
-            </div>
-        </div>
+        <Box position='absolute' alignSelf='flex-end' w='200px' onClick={() => handlePress(id)}>
+            <Image display='flex' float='right' boxSize='32px' m='4px' src={favoriteItem ? starFavorite : starWhite} alt="" />
+        </Box>
     );
 };
 

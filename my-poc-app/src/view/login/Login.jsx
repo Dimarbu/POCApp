@@ -42,7 +42,7 @@ const Login = () => {
         const sessionActive = localStorage.getItem('key');
         if (sessionActive === JSON.stringify(data)) {
             navigate('/Home')
-        }
+        } 
     };
     validateActiveSession();
 
