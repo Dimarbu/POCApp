@@ -3,7 +3,7 @@
   justify-content: space-between;
   position: relative;
   width: 100%;
-  height: 110px;
+  height: 100px;
   background-color:#3A537C;
   color: #fff;
   padding: 10px;
@@ -24,12 +24,16 @@
   display: flex;
   font-size:large;
    flex-direction: column;
-   width:120px;
+   width:10%;
+   text-align: right;
  }
  .divLinks {
    display: flex;
    justify-content: center;
  }
+/*  .inputEmail {
+   border: #3A537C 1px solid;
+ } */
 
 img {
   height: 100px;

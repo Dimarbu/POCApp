@@ -49,18 +49,18 @@ const Login = () => {
     return (
         <Center width='100%' height='100vh'>
             <Stack spacing={4} w='35%' >
-                <InputGroup size='sm' >
+                <InputGroup border='#3A537C' className='inputEmail' size='sm' >
                     <InputLeftElement
                         pointerEvents='none'
-                        children={<EmailIcon color='blue.300' />}
+                        children={<EmailIcon color='#3A537C' />}
                     />
                     <Input type='email' placeholder='Email' borderRadius='8px' onChange={handleInputChange} name="email" />
                 </InputGroup>
 
-                <InputGroup size='sm'>
+                <InputGroup border='#3A537C' size='sm'>
                     <InputLeftElement
                         pointerEvents='none'
-                        children={<LockIcon color='blue.300' />}
+                        children={<LockIcon color='#3A537C' />}
                     />
                     <Input
                         pr='4.5rem'
@@ -71,11 +71,11 @@ const Login = () => {
                     />
                     <InputRightElement width='4.5rem'>
                         <Button h='1.5rem' size='sm' bg={'transparent'} onClick={handleClick}>
-                            {show ? <ViewIcon color='blue.300' /> : <ViewOffIcon color='blue.300' />}
+                            {show ? <ViewIcon color='#3A537C' /> : <ViewOffIcon color='blue.300' />}
                         </Button>
                     </InputRightElement>
                 </InputGroup>
-                <Button size='sm' onClick={() =>
+                <Button bg='#3A537C' textColor='white' size='sm' onClick={() =>
                     validateUserData() ? navigate('/Home') :  `Ingresa un correo y contraseña valido`  }>LogIn</Button>
             </Stack>
         </Center>

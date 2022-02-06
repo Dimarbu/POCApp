@@ -26,7 +26,7 @@ const Detail = () => {
                         <p> <b>Descripción:</b> {details.description} </p>
                     </Box>
                 </Box>
-                <Button variant='solid' onClick={() => navigate('/Home')}>Volver a Home</Button>
+                <Button  bg='#3A537C' textColor='white' variant='solid' onClick={() => navigate('/Home')}>Volver a Home</Button>
             </Stack>
 
         </>
